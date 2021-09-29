@@ -149,7 +149,7 @@ var runSim = function compute() {
         $('#pLoss').text('50%');
         $('#pRevenu').text(currency(Math.round(revenues * 0.5)));
         $('#pRevenuC').text(currency(fvMensual + Math.round(revenues * 0.5)));
-        $('#tnsDeduction, #tnsPayment').removeClass("hidden");
+        $('#agirTns').removeClass("hidden");
     } else {
         $('#pRevenu').text(currency(Math.round(revenues * 0.5)));
         $('#pRevenuC').text(currency(fvMensual + Math.round(revenues * 0.5)))
