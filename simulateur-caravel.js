@@ -142,13 +142,13 @@ var runSim = function compute() {
         $("#pSituation").text('salarié');
         $('#pLoss').text('36,8%');
         $('#pRevenu').text(currency(Math.round(revenues * 0.632)));
-        $('#pRevenuC').text(currency(fvMensual + Math.round(revenues * 0.632)))
+        $('#pRevenuC').text(currency(fvMensual + Math.round(revenues * 0.632)));
         $('#agirSalarie').removeClass("hidden");
     } else if (urlPro == "tns") {
         $("#pSituation").text('indépendant');
         $('#pLoss').text('50%');
         $('#pRevenu').text(currency(Math.round(revenues * 0.5)));
-        $('#pRevenuC').text(currency(fvMensual + Math.round(revenues * 0.5)))
+        $('#pRevenuC').text(currency(fvMensual + Math.round(revenues * 0.5)));
         $('#tnsDeduction, #tnsPayment').removeClass("hidden");
     } else {
         $('#pRevenu').text(currency(Math.round(revenues * 0.5)));
