@@ -63,7 +63,7 @@ var runSim = function compute() {
 
     $('#DfiscalReferenceIncome').text(currency(fiscalReferenceIncome));
     $('#DYearlyTaxToPay').text(currency(YearlyTaxToPay));
-    $('#DmaxDeduction').text(currency(maxDeduction));
+    $('#DmaxDeduction, #DmaxDeduction2').text(currency(maxDeduction));
     $('#DmarginalIncomeTax, #TMI2, #TMI3').text(marginalIncomeTax)
 
     //SectTax
@@ -98,7 +98,7 @@ var runSim = function compute() {
   $('#fvMensualMin').text(`${Math.round(fvMin / (12 * 20))} €`)
 
   //SectTax
-  $('#initialTaxGain').text(currency(initialTaxGain));
+  $('#initialTaxGain, #initialTaxGain2').text(currency(initialTaxGain));
   $('#firstYearDeposit').text(currency(firstYearDeposit));
   $('#monthlySavingsEffort, #mseHint').text(currency(monthlySavingsEffort));
 
