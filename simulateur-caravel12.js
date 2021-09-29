@@ -188,6 +188,8 @@ let simulation = function (age, firstDeposit, monthlyDeposit) {
 
 $('#selectDecay').change(function () {
 
+    function currency(e) { return e.toLocaleString('en').replace(',', ' ') + " €" }
+
     let initial = parseInt(document.getElementById('initial').value);
     let mensual = parseInt(document.getElementById('mensual').value);
 
