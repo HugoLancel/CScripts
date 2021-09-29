@@ -25,7 +25,7 @@ if (tr !== "true") {
 
 };
 
-$('#leftCta, #centerCta, #topCta, #meeting').click(function () { analytics.track('Simulation CTA Clicked', { CTA: this.id }) }); $('.sim-v2-collapsable-section-wrapper').one('click', function () { analytics.track('Simulation Collapse Clicked', { Section: this.id }) });
+$('#leftCta, #centerCta, #topCta, #meeting, #votreSimulationCta, #startNowCta').click(function () { analytics.track('Simulation CTA Clicked', { CTA: this.id }) }); $('.sim-v2-collapsable-section-wrapper').one('click', function () { analytics.track('Simulation Collapse Clicked', { Section: this.id }) });
 $('.increment-button').one('click', function () { analytics.track('Simulation Plus/Minus Clicked') });
 $("#age").val(urlAge); $("#revenus").val(urlRevenus); $("#mensual").val(urlMensual); $("#initial").val(urlInitial);
 
