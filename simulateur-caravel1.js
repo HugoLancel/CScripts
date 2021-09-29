@@ -115,12 +115,12 @@ var runSim = function compute() {
     //Top
     $('#mensualRecap, #mensualTax, #mensualRecapBottom, #MensualHint, #mdA').text(currency(monthlyDeposit));
     $('#fvMensualRecap').text(`${Math.round(fv / (12 * 20))} €`)
-    $('#fvRecap').text(currency(fv));
+    $('#fvRecap, #decayFvToday').text(currency(fv));
     $('#ageA').text(age); $('#ageB').text(age + 10); $('#mdB').text(currency(monthlyDeposit * 2));
 
     //Bottom
-    $('#generatedInterests').text(currency(generatedInterests));
-    $('#totalSavings').text(currency(totalDeposit));
+    $('#generatedInterests, #decayGeneratedInterestsToday').text(currency(generatedInterests));
+    $('#totalSavings, #decayTotalDepositToday').text(currency(totalDeposit));
     $('#t-cotis').text(t)
     $('#totalFiscalGain').text(((taxGain * t) + initialTaxGain).toLocaleString('en').replace(',', ' ') + " €")
     $('#taxGain').text(currency(taxGain));
@@ -155,6 +155,8 @@ var runSim = function compute() {
         $('#pRevenuC').text(currency(fvMensual + Math.round(revenues * 0.5)))
     };
     $('#fvMpension').text("+" + fvMensual + "€");
+
+   
 
     //ConstructJSONResult
     let resultsToPush = JSON.stringify({ "age": age, "revenus": revenues, "vInitial": firstDeposit, "vMensuel": monthlyDeposit, "t": t, "fv": fv, "fvMin": fvMin, "fvMax": fvMax, "fvMensual": fvMensual, "totalSavings": totalDeposit, "generatedInterests": generatedInterests, "totalFiscalGain": (taxGain * t) + initialTaxGain, "firstYearDeposit": firstYearDeposit, "initialTaxGain": initialTaxGain, "monthlySavingsEffort": monthlySavingsEffort });
