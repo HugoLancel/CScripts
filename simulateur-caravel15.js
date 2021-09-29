@@ -98,7 +98,7 @@ var runSim = function compute() {
 
         $('#DfiscalReferenceIncome').text(currency(fiscalReferenceIncome));
         $('#DYearlyTaxToPay').text(currency(YearlyTaxToPay));
-        $('#DmaxDeduction, #DmaxDeduction2').text(currency(maxDeduction));
+        $('#DmaxDeduction').text(currency(maxDeduction));
         $('#DmarginalIncomeTax, #TMI2, #TMI3').text(marginalIncomeTax)
 
         //SectTax
@@ -211,12 +211,12 @@ $('#selectDecay').change(function () {
     var decayTotalDepositDif = currency(resultB.totalDeposit - resultA.totalDeposit); $('#decayTotalDepositDif').text(decayTotalDepositDif);
 
     var decayGeneratedInterests = currency(resultB.generatedInterests); $('#decayGeneratedInterests').text(decayGeneratedInterests);
-    var decayGeneratedInterestsDif = currency(resultB.generatedInterests - resultA.generatedInterests);$('#decayGeneratedInterestsDif').text(decayGeneratedInterestsDif);
+    var decayGeneratedInterestsDif = currency(resultB.generatedInterests - resultA.generatedInterests); $('#decayGeneratedInterestsDif').text(decayGeneratedInterestsDif);
 
 
 });
 
-let calculDecay = function(d){
+let calculDecay = function (d) {
 
     let initial = parseInt(document.getElementById('initial').value);
     let mensual = parseInt(document.getElementById('mensual').value);
@@ -237,11 +237,11 @@ let calculDecay = function(d){
     var decayTotalDepositDif = currency(resultB.totalDeposit - resultA.totalDeposit); $('#decayTotalDepositDif').text(decayTotalDepositDif);
 
     var decayGeneratedInterests = currency(resultB.generatedInterests); $('#decayGeneratedInterests').text(decayGeneratedInterests);
-    var decayGeneratedInterestsDif = currency(resultB.generatedInterests - resultA.generatedInterests);$('#decayGeneratedInterestsDif').text(decayGeneratedInterestsDif);
+    var decayGeneratedInterestsDif = currency(resultB.generatedInterests - resultA.generatedInterests); $('#decayGeneratedInterestsDif').text(decayGeneratedInterestsDif);
 
 
 };
 
 $(document).ready(function () {
-calculDecay(2);
+    calculDecay(2);
 });
