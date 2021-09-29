@@ -176,6 +176,9 @@ $('.inline-div-field').change(runSim);
 //SimulationSaver
 window.setTimeout(function () { var post = window.localStorage.getItem("sent"); if (!post) { window.localStorage.setItem("sent", "true"); let hookUrl = "https://hook.integromat.com/i11avicngpodnczi1wk781hh2rp2bcvt"; if (urlEmail) { $.post(hookUrl, { "Email": urlEmail, "params": $('#params').val(), "results": resultsToSend.results, "source": $('#source').val(), "phone": urlPhone }) }; if (urlPhone && !urlEmail) { $.post(hookUrl, { "params": $('#params').val(), "results": resultsToSend.results, "source": $('#source').val(), "phone": urlPhone }) } } else { console.log("already posted") } }, 500);
 
+//format Currency Function
+function currency(e) { return e.toLocaleString('en').replace(',', ' ') + " €" }
+
 
 // SimulateDecalage
 let simulation = function (age, firstDeposit, monthlyDeposit) {
@@ -188,13 +191,13 @@ let simulation = function (age, firstDeposit, monthlyDeposit) {
 
 $('#selectDecay').change(function () {
 
-    function currency(e) { return e.toLocaleString('en').replace(',', ' ') + " €" }
 
     let initial = parseInt(document.getElementById('initial').value);
     let mensual = parseInt(document.getElementById('mensual').value);
 
     let age = parseInt($('#age').val());
     let b = parseInt(this.value);
+    $('#decay').text(this.value);
 
     let ageB = +age + b
 
@@ -211,4 +214,34 @@ $('#selectDecay').change(function () {
     var decayGeneratedInterestsDif = currency(resultB.generatedInterests - resultA.generatedInterests);$('#decayGeneratedInterestsDif').text(decayGeneratedInterestsDif);
 
 
+});
+
+let calculDecay = function(d){
+
+    let initial = parseInt(document.getElementById('initial').value);
+    let mensual = parseInt(document.getElementById('mensual').value);
+
+    let age = parseInt($('#age').val());
+    let b = parseInt(d);
+    $('#decay').text(d);
+
+    let ageB = +age + b
+
+    let resultA = simulation(age, initial, mensual)
+    let resultB = simulation(ageB, initial, mensual)
+
+    var decayFv = currency(resultB.fv); $('#decayFv').text(decayFv);
+    var decayFvDif = currency(resultB.fv - resultA.fv); $('#decayFvDif').text(decayFvDif)
+
+    var decayTotalDeposit = currency(resultB.totalDeposit); $('#decayTotalDeposit').text(decayTotalDeposit)
+    var decayTotalDepositDif = currency(resultB.totalDeposit - resultA.totalDeposit); $('#decayTotalDepositDif').text(decayTotalDepositDif);
+
+    var decayGeneratedInterests = currency(resultB.generatedInterests); $('#decayGeneratedInterests').text(decayGeneratedInterests);
+    var decayGeneratedInterestsDif = currency(resultB.generatedInterests - resultA.generatedInterests);$('#decayGeneratedInterestsDif').text(decayGeneratedInterestsDif);
+
+
+};
+
+$(document).ready(function () {
+calculDecay(2);
 });
